@@ -1,14 +1,49 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite App</title>
+    <title>NSW Post-judgement Interest Calculator</title>
   </head>
-  <body>
-    <h1 class="text-3xl font-bold underline">Hello testing</h1>
-    <div id="app"></div>
-    <script type="module" src="/main.js"></script>
+  <body class="flex justify-center">
+    <div class="w-full max-w-4xl px-4 py-8 bg-white">
+      <h1 class="text-center text-2xl font-semibold mb-6">NSW Post-judgement Interest Calculator</h1>
+      <div id="calculator" class="space-y-6">
+        <!-- Form for input -->
+        <form id="interestForm" class="flex flex-col">
+          <label for="judgement-date" class="font-semibold p-1">Judgement date:</label>
+          <input
+            type="date"
+            id="judgement-date"
+            name="judgement-date"
+            class="p-2 border rounded"
+            required
+          />
+          <label for="date-now" class="font-semibold p-2">Date now:</label>
+          <input
+            type="date"
+            id="date-now"
+            name="date-now"
+            class="p-2 border rounded"
+            required
+          />
+          <label for="amount" class="font-semibold p-2">Amount ($):</label>
+          <input
+            type="number"
+            id="amount"
+            name="amount"
+            class="p-2 border rounded"
+            required
+          />
+          <button type="submit" class="mt-4 bg-amber-800 text-white font-bold py-2 rounded hover:bg-blue-700 transition duration-200">Calculate</button>
+        </form>
+        <!-- Div to display the result -->
+        <div id="result" class="text-center text-lg font-medium"></div>
+        <!-- Div to display the calculation and reasoning -->
+        <div></div>
+      </div>
+    </div>
   </body>
+  <script type="module" src="/main.js"></script>
 </html>
