@@ -7,12 +7,20 @@
     <title>NSW Post-judgement Interest Calculator</title>
   </head>
   <body class="flex justify-center">
-    <div class="w-full max-w-4xl px-4 py-8 bg-white">
-      <h1 class="text-center text-2xl font-semibold mb-6">NSW Post-judgement Interest Calculator</h1>
-      <div id="calculator" class="space-y-6">
+    <div class="w-full max-w-3xl px-4 py-8 bg-white">
+      <h1 class="text-center text-2xl font-semibold mb-6">
+        NSW Post-judgement Interest Calculator
+      </h1>
+      <p class="mb-6">
+        A defensible interest calculator dynamically compliant with the Civil
+        Procedure Act 2005 (NSW) and Uniform Civil Procedure Rules 2005 (NSW).
+      </p>
+      <div id="calculator" class="space-y-6 border px-6 py-6 shadow-lg">
         <!-- Form for input -->
         <form id="interestForm" class="flex flex-col">
-          <label for="judgement-date" class="font-semibold p-1">Judgement date:</label>
+          <label for="judgement-date" class="font-semibold p-1"
+            >Judgement date:</label
+          >
           <input
             type="date"
             id="judgement-date"
@@ -20,7 +28,10 @@
             class="p-2 border rounded"
             required
           />
-          <label for="date-now" class="font-semibold p-2">Date now:</label>
+          <p class="p-1 text-gray-600 mb-1">
+            The date that judgement was effected.
+          </p>
+          <label for="date-now" class="font-semibold p-1">Date now:</label>
           <input
             type="date"
             id="date-now"
@@ -28,6 +39,10 @@
             class="p-2 border rounded"
             required
           />
+          <p class="p-1 text-gray-600 mb-1">
+            Date to which interest is to be calculated up to. It must be at
+            least 28 days after the judgement date
+          </p>
           <label for="amount" class="font-semibold p-2">Amount ($):</label>
           <input
             type="number"
@@ -36,14 +51,122 @@
             class="p-2 border rounded"
             required
           />
-          <button type="submit" class="mt-4 bg-amber-800 text-white font-bold py-2 rounded hover:bg-blue-700 transition duration-200">Calculate</button>
+          <p class="p-1 text-gray-600 mb-1">
+            The judgement sum ordered by the court.
+          </p>
+          <label for="interest" class="font-semibold p-2"
+            >Interest rate applied:</label
+          >
+          <table class="table-auto border">
+            <tbody>
+              <tr>
+                <td class="border">UCPR prescribed rate</td>
+                <td class="border">6%</td>
+              </tr>
+              <tr>
+                <td class="border">RBA cash rate</td>
+                <td class="border">COMPLETE 'Date now' FIELD</td>
+              </tr>
+              <tr class="font-black">
+                <td class="border">Total</td>
+                <td class="border">COMPLETE 'Date now' FIELD</td>
+              </tr>
+            </tbody>
+          </table>
+          <p class="p-1 text-gray-600">UCPR prescribed rate as of 2024.</p>
+          <p class="p-1 text-gray-600">RBA cash rate retrived TIME STAMP.</p>
+          <button
+            type="submit"
+            class="mt-4 bg-amber-800 text-white font-bold py-2 rounded hover:bg-amber-900 transition duration-200"
+          >
+            Calculate
+          </button>
         </form>
         <!-- Div to display the result -->
-        <div id="result" class="text-center text-lg font-medium"></div>
+        <div id="result" class="text-center text-lg font-semibold"></div>
         <!-- Div to display the calculation and reasoning -->
-        <div></div>
+      </div>
+      <h2 class="mt-8 text-xl font-bold">Legislative framework</h2>
+      <div class="p-4 shadow-lg">
+        <h3 class="font-semibold p-2">Section 101: Interest after Judgment</h3>
+        <p>
+          (cf Act No 52 1970, section 95; Act No 9 1973, section 85; Act No 11
+          1970, section 39)
+        </p>
+        <ol class="list-decimal pl-8 mt-0">
+          <li>
+            Unless the court orders otherwise, interest is payable on so much of
+            the amount of a judgment (exclusive of any order for costs) as is
+            from time to time unpaid.
+          </li>
+          <li>
+            Interest under subsection (1) is to be calculated, at the prescribed
+            rate or at such other rate as the court may order, from:
+            <ul>
+              <li>the date on which the judgment takes effect, or</li>
+              <li>such later date as the court may order.</li>
+            </ul>
+          </li>
+          <li>
+            Despite subsection (1), interest is not payable on the amount of a
+            judgment if the amount is paid in full within 28 days after the date
+            on which the judgment takes effect, unless the court orders to the
+            contrary.
+          </li>
+          <li>
+            Unless the court orders otherwise, interest is payable on an amount
+            payable under an order for the payment of costs.
+          </li>
+          <li>
+            Interest on an amount payable under an order for the payment of
+            costs is to be calculated, at the prescribed rate or at any other
+            rate that the court orders, from the date the order was made or any
+            other date that the court orders.
+          </li>
+          <li>
+            This section does not authorise the giving of interest on any
+            interest payable under this section.
+          </li>
+          <li>
+            In this section, a reference to the <em>prescribed rate</em> of
+            interest is a reference to the rate of interest prescribed by the
+            uniform rules for the purposes of this section.
+          </li>
+        </ol>
+        <p>Note—</p>
+        <p>
+          See section 136 in relation to the order in which payments on account
+          of a judgment debt are to be appropriated.
+        </p>
+      </div>
+      <div class="p-4 shadow-lg">
+        <h3 class="font-semibold p-2">Section 36.7: Payment of Interest</h3>
+        <p>(cf SCR Part 40, rule 7)</p>
+        <ol class="list-decimal pl-8">
+          <li>
+            The prescribed rate at which interest is payable under section 101
+            of the Civil Procedure Act 2005 is:
+            <ul>
+              <li>
+                (a) in respect of the period from 1 January to 30 June in any
+                year—the rate that is 6% above the cash rate last published by
+                the Reserve Bank of Australia before that period commenced, and
+              </li>
+              <li>
+                (b) in respect of the period from 1 July to 31 December in any
+                year—the rate that is 6% above the cash rate last published by
+                the Reserve Bank of Australia before that period commenced.
+              </li>
+            </ul>
+          </li>
+          <li>
+            The Local Court may not order the payment of interest up to judgment
+            in any proceedings in which the amount claimed is less than $1,000.
+          </li>
+        </ol>
       </div>
     </div>
+    <div></div>
   </body>
   <script type="module" src="/main.js"></script>
 </html>

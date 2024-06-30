@@ -4,6 +4,7 @@ Making a defensible post-interest judgement calculator complaint with the Civil 
 TODO:
 * make an API call to RBA stats and display it
 * show calculation on screen
+* make legislative provisions drop downs (accordian styling)
 
 ### 36.7   Payment of interest (cf SCR Part 40, rule 7)
 (1)  The prescribed rate at which interest is payable under section 101 of the Civil Procedure Act 2005 is—
@@ -14,3 +15,5 @@ TODO:
 * expressjs backend
 * vite frontend
 * I've configured vite so that all requests made to `/api` in the frontend are to be forwarded to the backend at `http://localhost:3001`.
+
+![alt text](image.png)
